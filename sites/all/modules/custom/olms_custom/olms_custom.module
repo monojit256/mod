@@ -32,6 +32,24 @@ function olms_custom_node_validate($node, $form, &$form_state) {
 $show_date1=date('Y-m-d', $show_date);
   //drupal_set_message($show_date1);
 $form_state['values']['field_expected_return_date']['und'][0]['value'] = $show_date1;
-//dpm($form);
+$get_item=$form['field_book_name']['und']['#options'][3];
+//drupal_set_message("<script>alert('$get_item')</script>");
+   /* $query = new EntityFieldQuery(); $query->entityCondition('entity_type', 'node') ->entityCondition('bundle', 'book_borrowed') ->propertyCondition('status', 1) ->fieldCondition('field_book_name', 'value', 'Monojit', '=') ->fieldOrderBy('field_borrow_date', 'value', 'DESC') ;*/
+	//dpm($form);
+  }
 }
+function olms_custom_node_insert($node)
+{
+	//drupal_set_message($node->nid);
+	$nod_id=$node->nid;
+	/*$query = new EntityFieldQuery(); $query->entityCondition('entity_type', 'node') ->entityCondition('bundle', 'book_issue') ->propertyCondition('status', 1) ->fieldCondition('field_book_name', 'entity_id', '$nod_id', '=');
+	$result = $query->execute(); 
+	/*if (isset($result['node'])) 
+	{ 
+	$book= array_shift($result['node']); //$
+	$news_items = entity_load('node', $book); 
+	$node_id=$news_items->field_field_book['und'][0]['target_id']; 
+	drupal_set_message($node_id); 
+    }*/
+	dpm($node);
 }
